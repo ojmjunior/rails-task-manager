@@ -1,12 +1,33 @@
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<p><% @task.completed %></p>
+<div class="container">
+  <h2>Nome da tarefa: <%= @task.title %></h2>
+  <div class="p-3 mb-2 bg-light text-dark border-left">
+    <p>Detalhamento da tarefa: <%= @task.details %></p>
+    <div class="flex my-3">Status da tarefa: 
+      <% if @task.completed %>
+        <i class="fas fa-check-square"></i>
+      <% else %>
+        <i class="far fa-square"></i>
+      <% end %>
+    </div>
+  </div>
+  
+  <p>
+  	<%= link_to "Back to list", tasks_path %>
+    <a href="/tasks">
+      <i class="fas fa-undo-alt"></i>
+    </a>
+  </p>
 
-<%= link_to "Delete #{@task.title}",
-            task_path(@task),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+  <p>
+  	<%= link_to "Edit this task", edit_task_path(@task) %>
+    <i class="fas fa-pencil-alt"></i>
+  </p>
 
-<%= link_to "Back to list", tasks_path %>
-
-<%= link_to "Edit this task", edit_task_path(@task) %>
+  <p>
+    <%= link_to "Delete '#{@task.title}'",
+                task_path(@task),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+                <i class="far fa-trash-alt"></i>
+  </p>
+</div>

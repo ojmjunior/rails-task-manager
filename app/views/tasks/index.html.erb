@@ -1,19 +1,21 @@
-<h1>INDEX VIEW</h1>
+<div class="container">
+  <h1 class="border-bottom">My tasks</h1>
+  
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+      <div class="flex my-3">
+        <% if task.completed %>
+          <i class="fas fa-check-square"></i>
+        <% else %>
+          <i class="far fa-square"></i>
+        <% end %>
+        <%= link_to task.title, task_path(task) %></li>
+    <% end %>
+  </ul>
+  <div class="border-top">
+    <%= link_to "+ Add a new Task", new_path %>
+  </div>
+</div>
 
-<ul>
-  <% @tasks.each do |task| %>
-    <li>
-    <%= link_to task.title, task_path(task) %></li>
-    <%= link_to "Delete",
-            task_path(task),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-    <%= link_to "Edit this task", edit_task_path(task) %>
-  <% end %>
-</ul>
-
-<%= link_to "+ Add a new Task", new_path %>
-
-
-
-
+</div>

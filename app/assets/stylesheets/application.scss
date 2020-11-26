@@ -1,1 +1,11 @@
 @import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+ul, li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+}
